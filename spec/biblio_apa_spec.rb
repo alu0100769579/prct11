@@ -2,9 +2,9 @@ require "spec_helper"
 
 describe Apa do
     before :all do 
-    	@libro = Book.new(["Raul Martin","Adolfo Dominguez"], "El Secreto De Los Perfumes", "Perfumes SA", "2011/7/02", 1, 1)
-		@periodico = Libro::Periodico.new(["Elvira Lindo","Pedro Piqueras"], "La Influencia de internet en los jovenes", "2011/7/02", "ABC", 130)
-		@documento = Libro::Elec_Document.new(["Juan Mata"], "El futbolero", "Marca libros SA", "Futbolistas de hoy", "2014/7/02", "PDF", "http://marca.com", "2014/7/02")
+    	@libro = Libro.new(["Raul Martin","Adolfo Dominguez"], "El Secreto De Los Perfumes", "Perfumes SA", "2011/7/02", 1, 1)
+		@periodico = Periodico.new(["Elvira Lindo","Pedro Piqueras"], "La Influencia de internet en los jovenes", "2011/7/02", "ABC", 130)
+		@documento = Documento_elec.new(["Juan Mata"], "El futbolero", "Marca libros SA", "Futbolistas de hoy", "2014/7/02", "PDF", "http://marca.com", "2014/7/02")
     end
 
     before :each do
