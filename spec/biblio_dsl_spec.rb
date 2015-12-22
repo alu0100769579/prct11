@@ -55,8 +55,8 @@ describe Referencias do
         end
         
         it "Insertar documento electronico" do
-            @APA.insertar(@documento)
-            expect(@APA.to_s).to eq("Mata, J. (2014/7/02). El Futbolero (PDF). Marca libros SA: Futbolistas de hoy. Disponible en: http://marca.com (2014/7/02). \n")
+            @APA.insertar(@doc_elec)
+            expect(@APA.to_s).to eq("Mata, J. (2014/7/02). El Futbolero (PDF). Marca libros SA: Futbolistas de hoy. Disponible en: http://marca.com (2014/7/02).\n")
         end
     end
 

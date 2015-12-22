@@ -114,22 +114,44 @@ class Periodico < Referencias
 end
 
 
-=begin
 class Documento_elec < Referencias
 	
-	attr_accessor :formato, :url, :fechacceso
+	def initialize(titulo, &block)
+
+		if block_given?
+			if block.arity == 1
+				yield self
+				
+			else
+				instance_eval &block
+			end
+		end
+		
+		super(titulo)
+	end
 	
-	def initialize(autor, titulo, editorial, edicion, publicacion, formato, url, fechacceso)
-		super(autor,titulo,editorial,publicacion)
+	def formato(formato)
+		
 		@formato = formato
+	end
+	
+	def url(url)
+		
 		@url = url
+	end
+	
+	def fechacceso(fechacceso)
+		
 		@fechacceso = fechacceso
+	end
+	
+	def edicion(edicion)
+		
 		@edicion = edicion
 	end
-		
+	
 	def to_s
-		string = ""
-		string << @autor << " (" << @publicacion << "). " << @titulo << @formato << ". " << @editorial << ": " << @edicion << ". Disponible en: " << @url << " (" << @fechacceso << "). "
+		
+		"#{@autor} (#{@publicacion}). #{@titulo} (#{@formato}). #{@editorial}: #{@edicion}. Disponible en: #{@url} (#{@fechacceso})."
 	end
 end
-=end
