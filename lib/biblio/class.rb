@@ -85,26 +85,36 @@ class Libro < Referencias
 			"#{@autor} (#{@publicacion}). #{@titulo} (#{@edicion.to_s}) (#{@volumen.to_s}). #{@editorial}."
 	end
 end
-=begin
+
 class Periodico < Referencias
 	
-	attr_accessor :paginas, :formato
+	def initialize(titulo, &block)
+
+		if block_given?
+			if block.arity == 1
+				yield self
+				
+			else
+				instance_eval &block
+			end
+		end
+		
+		super(titulo)
+	end
 	
-	def initialize(autor, titulo, editorial, publicacion, paginas)
-		formato = "Papel"
-		super(autor,titulo,editorial,publicacion)
-	
-			@paginas = paginas
+	def paginas(paginas)
+		
+		@paginas = paginas
 	end
 	
 	def to_s
-		string = ""
-		string << @autor << " (" << @publicacion << "). " << @titulo << ". " << @editorial << ", pp. " << @paginas.to_s << "."
+		
+		"#{@autor} (#{@editorial}). #{@titulo}. #{@publicacion}, p. #{@paginas}."
 	end
 end
 
 
-
+=begin
 class Documento_elec < Referencias
 	
 	attr_accessor :formato, :url, :fechacceso
