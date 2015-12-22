@@ -1,28 +1,32 @@
+require 'biblio'
+
 class Referencias
 	
 		include Comparable
 		
-		attr_accessor :autor, :titulo, :editorial, :publicacion
-		def initialize(autor, titulo, editorial, publicacion)
+		def editorial(editorial)
 			
 			@editorial = editorial
+		end
+		
+		
+		def publicacion(publicacion)
+			
 			@publicacion = publicacion
+		end
+		
+		
+		def autor(autor)
 			
-			str=""
-			autor.each do |a|
-				separar = a.split(/\W+/)
-				str+=separar[1]
-				str+=", "
-				unless separar[2].nil?
-					str+=separar[2][0]
-					str+=". "
-				end
-				str+=separar[0][0]
-				str+="."
-				str+=" & " unless a == autor.last
-			end
+			str = "#{apellido}, "
+			str << "#{nombre[0]}."
+			str << " & "
 			
-			@autor = str
+			@autor << str(autor[:nombre], autor[:apellido])
+		end
+		
+		
+		def initialize(titulo)
 			
 			tit = titulo.split(' ')
 			tit.each do |word|
@@ -37,7 +41,6 @@ class Referencias
 			end
 
 			@titulo = tit.join(' ')
-			
 		end
 		
 		
@@ -48,17 +51,34 @@ class Referencias
 end
 
 class Libro < Referencias
-	attr_accessor :edicion, :volumen
-	
-	def initialize(autor, titulo, editorial, publicacion, edicion, volumen)
+
+
+	def initialize(titulo, &block)
+
+		if block_given?
+			if block.arity == 1
+				yield self
+				
+			else
+				instance_eval &block
+			end
+		end
 		
-		super(autor,titulo,editorial,publicacion)
-			@edicion = edicion
-			@volumen = volumen
+		super(titulo)
 	end
+	
+	def edicion(edicion)
+		
+		@edicion = edicion
+	end
+	
+	def volumen(volumen)
+		
+		@volunmen = volumen
+	end
+	
 	def to_s
-			string=""
-			string  << @autor << " (" << @publicacion << "). " << @titulo << " (" << @edicion.to_s << ") (" << @volumen.to_s << "). " << @editorial << "."
+			"#{@autor} (#{@publicacion}). #{@titulo} (#{@edicion.to_s}) (#{@volumen.to_s}). #{@editorial}."
 	end
 end
 

@@ -1,5 +1,5 @@
 require "spec_helper"
-
+=begin
 describe Apa do
     before :all do 
     	@libro = Libro.new(["Raul Martin","Adolfo Dominguez"], "El Secreto De Los Perfumes", "Perfumes SA", "2011/7/02", 1, 1)
@@ -33,3 +33,5 @@ describe Apa do
         end
     end
 end
+
+=end

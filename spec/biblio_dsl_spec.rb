@@ -1,5 +1,5 @@
-require 'spec_helper'
-
+require "spec_helper"
+require "biblio"
 
 describe Referencias do
     before :all do 
@@ -38,6 +38,10 @@ describe Referencias do
 		
     		
 	end
+	
+	before :each do
+        @APA = Apa.new
+    end
 	
 	describe "Insertar elementos" do
         it "Insertar libro y bien formateado" do
