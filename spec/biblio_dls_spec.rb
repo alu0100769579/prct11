@@ -38,5 +38,12 @@ describe Referencias do
 		
     		
 	end
+	
+	describe "Insertar elementos" do
+        it "Insertar libro y bien formateado" do
+            @APA.insertar(@libro)
+            expect(@APA.to_s).to eq("Martin, R. & Dominguez, A. (2011/7/02). El Secreto de los Perfumes (1) (1). Perfumes SA.\n")
+        end
+    end
 
 end
