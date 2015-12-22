@@ -24,7 +24,7 @@ describe Referencias do
     	    paginas     "130"
     	    
     	end
-=begin    	 
+ 
     	@doc_elec = Documento_elec.new('El futbolero') do
     	    autor       :apellido => "Mata",
     	                :nombre => "Juan"
@@ -35,7 +35,7 @@ describe Referencias do
     	    url         "http://marca.com"
     	    fechacceso  "2014/7/02"
     	end
-=end		
+	
     		
 	end
 	
@@ -52,6 +52,11 @@ describe Referencias do
         it "Insertar periodico y bien formateado" do
             @APA.insertar(@periodico)
             expect(@APA.to_s).to eq("Lindo, E. & Piqueras, P. (ABC). La Influencia de Internet en los Jovenes. 2011/7/02, p. 130.\n")
+        end
+        
+        it "Insertar documento electronico" do
+            @APA.insertar(@documento)
+            expect(@APA.to_s).to eq("Mata, J. (2014/7/02). El Futbolero (PDF). Marca libros SA: Futbolistas de hoy. Disponible en: http://marca.com (2014/7/02). \n")
         end
     end
 
