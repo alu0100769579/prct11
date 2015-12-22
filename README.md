@@ -39,6 +39,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 5. Create a new Pull Request
 
 
-[![Build Status](https://travis-ci.org/alu0100769579/prct10.svg)](https://travis-ci.org/alu0100769579/prct10)
+[![Build Status](https://travis-ci.org/alu0100769579/prct11.svg)](https://travis-ci.org/alu0100769579/prct11)
 
-[![Coverage Status](https://coveralls.io/repos/alu0100769579/prct10/badge.svg?branch=master&service=github)](https://coveralls.io/github/alu0100769579/prct10?branch=master)
+[![Coverage Status](https://coveralls.io/repos/alu0100769579/prct11/badge.svg?branch=master&service=github)](https://coveralls.io/github/alu0100769579/prct11?branch=master)
