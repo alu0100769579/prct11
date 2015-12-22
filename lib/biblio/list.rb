@@ -74,25 +74,6 @@ class Lista_doble
        @head.prev = nil
        return @node
         
-       #node = @head
-       #if @head.next == nil
-      #     @head = nil
-     #  else
-    #       @head = @head.next
-       #end
-       #return node
-       
-       #node = @head
-       #@head = @head.next
-       
-       #node.next = nil
-       #node.prev = nil
-       
-       #if @head == nil
-        #  @tail = nil
-       #end
-       
-       #return node
    end
    
    def each

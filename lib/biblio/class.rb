@@ -1,4 +1,4 @@
-class Libro
+class Referencias
 	
 		include Comparable
 		
@@ -47,7 +47,7 @@ class Libro
 		end
 end
 
-class Book < Libro
+class Libro < Referencias
 	attr_accessor :edicion, :volumen
 	
 	def initialize(autor, titulo, editorial, publicacion, edicion, volumen)
@@ -62,7 +62,7 @@ class Book < Libro
 	end
 end
 
-class Periodico < Libro
+class Periodico < Referencias
 	
 	attr_accessor :paginas, :formato
 	
@@ -81,7 +81,7 @@ end
 
 
 
-class Elec_Document < Libro
+class Documento_elec < Referencias
 	
 	attr_accessor :formato, :url, :fechacceso
 	
