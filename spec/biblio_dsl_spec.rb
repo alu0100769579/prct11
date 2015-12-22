@@ -13,7 +13,7 @@ describe Referencias do
     	    edicion     "1"
     	    volumen     "1"
     	end
-    	
+=begin 	
     	@periodico = Periodico.new('La influencia de internet en los jovenes') do
     	    autor       :apellido => "Lindo",
     	                :nombre => "Elvira"
@@ -35,7 +35,7 @@ describe Referencias do
     	    url         "http://marca.com"
     	    fechacceso  "2014/7/02"
     	end
-		
+=end		
     		
 	end
 	

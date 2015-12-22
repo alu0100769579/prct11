@@ -18,11 +18,14 @@ class Referencias
 		
 		def autor(autor)
 			
+			@autor = "" if @autor.nil?
+			@autor << autores(autor[:nombre], autor[:apellido])
+		end
+		
+		def autores(nombre, apellido)
 			str = "#{apellido}, "
 			str << "#{nombre[0]}."
 			str << " & "
-			
-			@autor << str(autor[:nombre], autor[:apellido])
 		end
 		
 		
@@ -41,6 +44,7 @@ class Referencias
 			end
 
 			@titulo = tit.join(' ')
+			@autor = @autor[0...-3]
 		end
 		
 		
@@ -74,14 +78,14 @@ class Libro < Referencias
 	
 	def volumen(volumen)
 		
-		@volunmen = volumen
+		@volumen = volumen
 	end
 	
 	def to_s
 			"#{@autor} (#{@publicacion}). #{@titulo} (#{@edicion.to_s}) (#{@volumen.to_s}). #{@editorial}."
 	end
 end
-
+=begin
 class Periodico < Referencias
 	
 	attr_accessor :paginas, :formato
@@ -118,3 +122,4 @@ class Documento_elec < Referencias
 		string << @autor << " (" << @publicacion << "). " << @titulo << @formato << ". " << @editorial << ": " << @edicion << ". Disponible en: " << @url << " (" << @fechacceso << "). "
 	end
 end
+=end
